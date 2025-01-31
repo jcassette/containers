@@ -15,7 +15,7 @@ jobs:
       attestations: write
     strategy:
       matrix:
-        container-name: [wireguard]
+        container-name: [wireguard, qbittorrent]
     continue-on-error: true
     steps:
       -
