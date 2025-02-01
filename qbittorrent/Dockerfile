@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-RUN apk add qbittorrent-nox
+RUN apk add --no-cache qbittorrent-nox
 
 VOLUME /config
 VOLUME /downloads

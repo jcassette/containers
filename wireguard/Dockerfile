@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-RUN apk add wireguard-tools
+RUN apk add --no-cache wireguard-tools
 
 VOLUME /config
 
