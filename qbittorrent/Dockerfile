@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-RUN apk add --no-cache qbittorrent-nox
+RUN apk add --no-cache catatonit qbittorrent-nox
 
 VOLUME /config
 VOLUME /downloads
@@ -13,4 +13,4 @@ ENV QBT_SAVE_PATH=/downloads
 
 COPY ./entrypoint.sh /entrypoint.sh
 
-CMD [ "/entrypoint.sh" ]
+ENTRYPOINT ["/usr/bin/catatonit", "--", "/entrypoint.sh"]
