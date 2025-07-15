@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-RUN apk add --no-cache catatonit certbot
+RUN apk add --no-cache catatonit certbot certbot-dns openssl
 
 VOLUME /certbot
 
