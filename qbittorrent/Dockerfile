@@ -1,4 +1,9 @@
-FROM alpine:edge
+FROM alpine:latest
+
+COPY <<EOF /etc/apk/repositories
+https://dl-cdn.alpinelinux.org/alpine/edge/main
+https://dl-cdn.alpinelinux.org/alpine/edge/community
+EOF
 
 RUN apk add --no-cache catatonit qbittorrent-nox
 
