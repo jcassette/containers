@@ -60,6 +60,7 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
       -
         name: Attest build provenance
+        if: false
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ${{ env.IMAGE_PATH }}
