@@ -66,3 +66,19 @@ jobs:
           subject-name: ${{ env.IMAGE_PATH }}
           subject-digest: ${{ steps.build-push.outputs.digest }}
           push-to-registry: true
+      -
+        name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ env.IMAGE_PATH }}@${{ steps.build-push.outputs.digest }}
+          format: 'spdx-json'
+          output-file: 'sbom.spdx.json'
+      -
+        name: Attest SBOM
+        if: false
+        uses: actions/attest-sbom@v3
+        with:
+          subject-name: ${{ env.IMAGE_PATH }}
+          subject-digest: ${{ steps.build-push.outputs.digest }}
+          sbom-path: 'sbom.spdx.json'
+          push-to-registry: true
