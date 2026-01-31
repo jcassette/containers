@@ -14,9 +14,9 @@ jobs:
       id-token: write
       attestations: write
     strategy:
+      fail-fast: false
       matrix:
         container-name: [certbot, qbittorrent, wireguard]
-    continue-on-error: true
     env:
       REGISTRY: ghcr.io
       USERNAME: ${{ github.repository_owner }}
