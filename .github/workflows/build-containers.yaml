@@ -61,7 +61,7 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
       -
         name: Attest build provenance
-        if: false
+        continue-on-error: true
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ${{ env.IMAGE_PATH }}
@@ -76,7 +76,7 @@ jobs:
           output-file: 'sbom.spdx.json'
       -
         name: Attest SBOM
-        if: false
+        continue-on-error: true
         uses: actions/attest-sbom@v3
         with:
           subject-name: ${{ env.IMAGE_PATH }}
@@ -92,6 +92,7 @@ jobs:
           output: 'trivy-results.sarif'
       -
         name: Upload vulnerability scan results
+        continue-on-error: true
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: 'trivy-results.sarif'
