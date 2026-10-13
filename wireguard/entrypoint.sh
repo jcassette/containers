@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/usr/bin/wg-quick up "$WG_CONFIG"
+/usr/bin/wg-quick up "$1"
 
 sleep 1
 
