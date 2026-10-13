@@ -1,11 +1,9 @@
 #!/bin/sh
 
-/usr/bin/wg-quick up "$1"
+for arg in "$@"; do
+    /usr/bin/wg-quick up "$arg"
+done
 
-sleep 1
-
-/usr/bin/wg
-
-while sleep 1; do
-    : # nothing
+while sleep 60; do
+    /usr/bin/wg
 done
