@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache catatonit wireguard-tools
+RUN apk add --no-cache catatonit iptables wireguard-tools
 
 VOLUME /config
 
