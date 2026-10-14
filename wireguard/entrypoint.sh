@@ -1,9 +1,11 @@
 #!/bin/sh
 
+set -e
+
 for arg in "$@"; do
-    /usr/bin/wg-quick up "$arg"
+    wg-quick up "$arg"
 done
 
 while sleep 60; do
-    /usr/bin/wg
+    wg
 done
